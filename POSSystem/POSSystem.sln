@@ -5,6 +5,12 @@ VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POSSystem", "POSSystem\POSSystem.csproj", "{3F3D73F0-1C51-4156-B1F1-FFC90B2CEE53}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POSSystem.ConsoleApp", "POSSyetem.ConsoleApp\POSSystem.ConsoleApp.csproj", "{AD262483-651E-45D9-B50D-C4ADEC936EA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POSSystem.DataAccessLayer", "POSSyetem.DataAccessLayes\POSSystem.DataAccessLayer.csproj", "{6937A280-BB5A-4240-80DA-3B2913A13B3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POSSystem.Common", "POSSystem.Common\POSSystem.Common.csproj", "{AE0D0C8B-CAE5-4180-BDD3-B4F11F5496EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{3F3D73F0-1C51-4156-B1F1-FFC90B2CEE53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F3D73F0-1C51-4156-B1F1-FFC90B2CEE53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F3D73F0-1C51-4156-B1F1-FFC90B2CEE53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD262483-651E-45D9-B50D-C4ADEC936EA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD262483-651E-45D9-B50D-C4ADEC936EA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD262483-651E-45D9-B50D-C4ADEC936EA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD262483-651E-45D9-B50D-C4ADEC936EA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6937A280-BB5A-4240-80DA-3B2913A13B3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6937A280-BB5A-4240-80DA-3B2913A13B3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6937A280-BB5A-4240-80DA-3B2913A13B3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6937A280-BB5A-4240-80DA-3B2913A13B3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE0D0C8B-CAE5-4180-BDD3-B4F11F5496EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE0D0C8B-CAE5-4180-BDD3-B4F11F5496EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE0D0C8B-CAE5-4180-BDD3-B4F11F5496EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE0D0C8B-CAE5-4180-BDD3-B4F11F5496EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
