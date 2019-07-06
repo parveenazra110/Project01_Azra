@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using POSSystem.DataAccessLayer;
 using POSSystem.Common;
+using POSSystem.BusinessLayer;
 
 
 namespace POSSyetem.ConsoleApp
@@ -15,33 +16,35 @@ namespace POSSyetem.ConsoleApp
         {
             UserRepository userrepo = new UserRepository();
             ProductRepository prodrepo = new ProductRepository();
+            ProductBL prodbl = new ProductBL();
+            UserBL userbl = new UserBL();
 
-            //int result = userrepo.ValidateUser("Albert@gl.com", "Albert@1234");
-            //Console.WriteLine(result);
-            //if(result==1 || result == 2)
-            //{
-            //    Console.WriteLine("Login Sucessful");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Login Failed");
-            //}
+            int result = userbl.ValidateUser("Ann@gmail.com","Ann@1234");
+            Console.WriteLine(result);
+            if (result == 1 || result == 2)
+            {
+                Console.WriteLine("Login Sucessful");
+            }
+            else
+            {
+                Console.WriteLine("Login Failed");
+            }
 
             //List<Product> prodlist = new List<Product>();
-            //prodlist = prodrepo.GetAllProducts();
+            //prodlist = prodbl.GetAllProducts();
 
-            //foreach(Product row in prodlist)
+            //foreach (Product row in prodlist)
             //{
-            //    Console.WriteLine("ProductId :"+row.ProductId);
-            //    Console.WriteLine("ProductName :"+row.ProductName);
-            //    Console.WriteLine("CategoryId :"+row.CategoryId);
-            //    Console.WriteLine("Price :"+row.Price);
+            //    Console.WriteLine("ProductId :" + row.ProductId);
+            //    Console.WriteLine("ProductName :" + row.ProductName);
+            //    Console.WriteLine("CategoryId :" + row.CategoryId);
+            //    Console.WriteLine("Price :" + row.Price);
             //    Console.WriteLine();
             //}
 
-            int saleid;
-            int retval=prodrepo.InsertSaleDetails(857, "Diego@gml.com", out saleid);
-            Console.WriteLine(saleid);
+            //int saleid;
+            //int retval=prodrepo.InsertSaleDetails(857, "Diego@gml.com", out saleid);
+            //Console.WriteLine(saleid);
 
         }
     }

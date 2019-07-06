@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using POSSystem.Common;
 using System.Data;
+using POSSystem.Common;
 
 namespace POSSystem.DataAccessLayer
 {
@@ -17,7 +14,7 @@ namespace POSSystem.DataAccessLayer
         SqlDataAdapter sda;
 
 
-        public List<Product> GetAllProducts()
+        public List<Common.Product> GetAllProducts()
         {
             List<Product> prodlist = new List<Product>();
             con = new SqlConnection(ConfigurationManager.ConnectionStrings["CodinovaDBContext"].ToString());
@@ -82,6 +79,6 @@ namespace POSSystem.DataAccessLayer
                 saleid =0;
             }
             return retval;
-        }
+        } 
     }
 }

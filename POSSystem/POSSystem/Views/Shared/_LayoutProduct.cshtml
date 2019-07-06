@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - POS System</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("QuickKart", "Index", "Admin", null, new { @style = "font-size:24pt;color: aliceblue;", @class = "navbar-brand" })
+                <ul class="nav navbar-nav" style="display:block;">
+                    @*<li><a href="index.html" style="font-size:24pt;color: aliceblue;">QuickKart</a></li>*@
+                    <li>@Html.ActionLink("View All Products", "GetAllProducts", "Product", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Add Product", "AddProduct", "Product", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("View All Offers", "ViewOffers", "Offer", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Add Offer", "AddOffer", "Offer", new { area = "" }, new { @class = "navbar-brand" })</li>
+                </ul>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right" style="margin-right:15px; ">
+                    <li>@Html.ActionLink("LogOut", "Home", "Home", new { area = "" }, new { @class = "navbar-brand glyphicon glyphicon-log-in" }) </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container-fluid">
+        @RenderBody()
+        <footer style="bottom:0;position:fixed;width:100%;text-align:center;">
+            <p>copyright &copy; @DateTime.Now.Year,QuickKart  All Rights Reserved</p>
+        </footer>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

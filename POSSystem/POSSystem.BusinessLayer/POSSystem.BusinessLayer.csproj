@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AE0D0C8B-CAE5-4180-BDD3-B4F11F5496EC}</ProjectGuid>
+    <ProjectGuid>{E409FEE9-D677-4AF6-A61E-4F41F668A671}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>POSSystem.Common</RootNamespace>
-    <AssemblyName>POSSystem.Common</AssemblyName>
+    <RootNamespace>POSSystem.BusinessLayer</RootNamespace>
+    <AssemblyName>POSSystem.BusinessLayer</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -69,14 +69,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Product.cs" />
+    <Compile Include="ProductBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="UserBL.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
+    <ProjectReference Include="..\POSSyetem.DataAccessLayes\POSSystem.DataAccessLayer.csproj">
+      <Project>{6937a280-bb5a-4240-80da-3b2913a13b3b}</Project>
+      <Name>POSSystem.DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\POSSystem.Common\POSSystem.Common.csproj">
+      <Project>{ae0d0c8b-cae5-4180-bdd3-b4f11f5496ec}</Project>
+      <Name>POSSystem.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
