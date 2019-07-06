@@ -49,7 +49,7 @@ namespace POSSystem.DataAccessLayer
             return prodlist;
         } 
 
-        public int InsertSaleDetails(decimal totalSaleAmount,string emailId,out string saleid)
+        public int InsertSaleDetails(decimal totalSaleAmount,string emailId,out int saleid)
         {
             
             int retval;
@@ -64,7 +64,7 @@ namespace POSSystem.DataAccessLayer
             prmretval.Direction = ParameterDirection.ReturnValue;
             cmd.Parameters.Add(prmretval);
 
-            SqlParameter prmsaleid = new SqlParameter("@saleid",SqlDbType.VarChar);
+            SqlParameter prmsaleid = new SqlParameter("@saleid",SqlDbType.Int);
             prmsaleid.Direction = ParameterDirection.Output;
             cmd.Parameters.Add(prmsaleid);
 
@@ -73,13 +73,13 @@ namespace POSSystem.DataAccessLayer
                 con.Open();
                 cmd.ExecuteNonQuery();
                 retval = Convert.ToInt32(prmretval.Value);
-                saleid = Convert.ToString(prmsaleid.Value);
+                saleid = Convert.ToInt32(prmsaleid.Value);
 
             }
             catch
             {
                 retval = -99;
-                saleid = "empty";
+                saleid =0;
             }
             return retval;
         }

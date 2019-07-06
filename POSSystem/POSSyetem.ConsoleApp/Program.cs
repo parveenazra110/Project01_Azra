@@ -39,8 +39,8 @@ namespace POSSyetem.ConsoleApp
             //    Console.WriteLine();
             //}
 
-            string saleid;
-            int retval=prodrepo.InsertSaleDetails(857, "Diego@gmail.com", out saleid);
+            int saleid;
+            int retval=prodrepo.InsertSaleDetails(857, "Diego@gml.com", out saleid);
             Console.WriteLine(saleid);
 
         }
