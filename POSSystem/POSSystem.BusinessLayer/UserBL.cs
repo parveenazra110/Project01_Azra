@@ -10,13 +10,15 @@ namespace POSSystem.BusinessLayer
 {
     public class UserBL
     {
-        UserRepository userrepo = new UserRepository();
+        //UserRepository userrepo = new UserRepository();---uncomment this line to create object of User repository in POSSystem.DataAccessLayer
+
         EntityUserRepository entityuserrepo = new EntityUserRepository();
         public int ValidateUser(string emailid,string password)
         {
             int retvalue;
             try
             {
+                //retvalue = userrepo.ValidateUser(emailid, password); ---uncomment this line to call Validate user method of User Repository in POSSystem.DataAccessLayer
                 retvalue = entityuserrepo.ValidateUser(emailid,password);
             }
             catch
