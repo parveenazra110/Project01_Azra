@@ -30,7 +30,7 @@ SELECT *FROM [dbo].ufn_GetAllProducts()
 --------------------------------------------------------------------------------------------------------------------------------------------- 
 -----Stored Procedure To Insert Sale Details into Sale Table and Generate SaleId.
 GO
-ALTER PROCEDURE usp_InsertSaleDetails(
+CREATE PROCEDURE usp_InsertSaleDetails(
 @EmailId VARCHAR(50), 
 @TotalSaleAmount DECIMAL(18,2), 
 @SaleId INT OUT 
@@ -71,7 +71,9 @@ END
  
 
 declaRe @sid INT,@retvalu int 
-Execute @retvalu = usp_InsertSaleDetails 'Davis@gmil.com',8856.56,@sid out 
+Execute @retvalu = usp_InsertSaleDetails 'Davis@gmail.com',8856.56,@sid out 
 print @sid
-PRINT @retvalu
+PRINT @retvalu 
+
+
 
