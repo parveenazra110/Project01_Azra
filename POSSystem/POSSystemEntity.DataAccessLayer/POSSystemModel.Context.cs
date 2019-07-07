@@ -39,7 +39,7 @@ namespace POSSystemEntity.DataAccessLayer
             return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<ufn_GetAllProducts_Result>("[CodinovaDBContext].[ufn_GetAllProducts]()");
         }
     
-        public virtual int usp_InsertSaleDetails(string emailId, Nullable<decimal> totalSaleAmount, ObjectParameter saleId)
+        public virtual int usp_InsertSaleDetails(string emailId, Nullable<double> totalSaleAmount, ObjectParameter saleId)
         {
             var emailIdParameter = emailId != null ?
                 new ObjectParameter("EmailId", emailId) :

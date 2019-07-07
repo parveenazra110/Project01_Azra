@@ -1,5 +1,5 @@
 ---Function To Validate User Credentials----
-CREATE FUNCTION [dbo].ufn_ValidateUser(
+ALTER FUNCTION [dbo].ufn_ValidateUser(
 @EmailId VARCHAR(50), 
 @Password VARCHAR(20) 
 ) 
@@ -14,7 +14,7 @@ BEGIN
 	 
 END
 
-SELECT [dbo].ufn_ValidateUser('Albert@gmail.com','Albert@1234')
+SELECT [dbo].ufn_ValidateUser('Albt@gmail.com','Albert@1234')
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -30,9 +30,9 @@ SELECT *FROM [dbo].ufn_GetAllProducts()
 --------------------------------------------------------------------------------------------------------------------------------------------- 
 -----Stored Procedure To Insert Sale Details into Sale Table and Generate SaleId.
 GO
-CREATE PROCEDURE usp_InsertSaleDetails(
+ALTER PROCEDURE usp_InsertSaleDetails(
 @EmailId VARCHAR(50), 
-@TotalSaleAmount DECIMAL, 
+@TotalSaleAmount DECIMAL(18,2), 
 @SaleId INT OUT 
 ) 
 AS 
@@ -40,11 +40,20 @@ BEGIN
 DECLARE @retval int,@tempsaleid INT
 	BEGIN TRY 
 		IF (@EmailId IS NULL) 
-			SET @retval=-1 
+		BEGIN
+			SET @retval=-1  
+			SET @SaleId=-99
+		END
 		ELSE IF NOT EXISTS(SELECT EmailId FROM Users WHERE EmailId=@EmailId) 
-		    SET @retval=-2 
+		BEGIN
+		    SET @retval=-2  
+			SET @SaleId=-99
+		END
 		ELSE IF (@TotalSaleAmount<=0) 
+		BEGIN
 			SET @retval=-3 
+			SET @SaleId=-99
+		END
 		ELSE 
 			BEGIN 
 				INSERT INTO Sales VALUES(@TotalSaleAmount,@EmailId) 
@@ -55,12 +64,14 @@ DECLARE @retval int,@tempsaleid INT
 
 	BEGIN CATCH 
 		SET @retval=-99 
+		SET @SaleId=-99
 	END CATCH 
 	RETURN @retval  
 END 
  
 
 declaRe @sid INT,@retvalu int 
-Execute usp_InsertSaleDetails 'Davis@gmail.com',8856.56,@sid out 
+Execute @retvalu = usp_InsertSaleDetails 'Davis@gmil.com',8856.56,@sid out 
 print @sid
+PRINT @retvalu
 

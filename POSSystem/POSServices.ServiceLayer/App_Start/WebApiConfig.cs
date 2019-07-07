@@ -15,15 +15,16 @@ namespace POSServices.ServiceLayer
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-                name: "ProductApi",
-                routeTemplate: "api/{Product}/{Action}/{id}",
+              name: "UserApi",
+              routeTemplate: "api/{Controller}/{Action}/{id}/{id1}",
+              defaults: new { controller = "User", action = "ValidateUser", emailid = RouteParameter.Optional, password = RouteParameter.Optional }
+          );
+            config.Routes.MapHttpRoute(
+                name: "Default",
+                routeTemplate: "api/{Controller}/{Action}/{id}",
                 defaults: new { controller = "Product", action = "GetAllProducts", id = RouteParameter.Optional }
             );
-            config.Routes.MapHttpRoute(
-               name: "DefaultApi",
-               routeTemplate: "api/{User}/{ValidateUser}/{emailid}/{password}",
-               defaults: new { controller = "User", action = "ValidateUser", emailid = RouteParameter.Optional, password = RouteParameter.Optional }
-           );
+           
             
            
         }

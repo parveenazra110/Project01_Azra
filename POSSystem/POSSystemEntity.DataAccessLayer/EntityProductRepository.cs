@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +33,28 @@ namespace POSSystemEntity.DataAccessLayer
             }
 
             return commonprodlist;
+        } 
+
+        public int InsertSaleDetails(double? totalSaleAmount, string emailId, out int saleid)
+        {
+            
+            int retvalue=0;
+            
+            try
+            {
+                context = new CodinovaDBContext();
+                var saleidparam = new ObjectParameter("SaleId", typeof(int));
+                retvalue = context.usp_InsertSaleDetails(emailId, totalSaleAmount,saleidparam);
+                saleid = Convert.ToInt32(saleidparam.Value);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+                saleid = 0;
+            }
+            return retvalue;
+
+          
         }
     }
 }

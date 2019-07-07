@@ -58,17 +58,17 @@ namespace POSSyetem.ConsoleApp
 
             //------------------------Entity -------------------------------------- 
 
-            List<POSSystem.Common.Product> prodlist = new List<POSSystem.Common.Product>();
-            prodlist = prodrepo.GetAllProducts();
+            //List<POSSystem.Common.Product> prodlist = new List<POSSystem.Common.Product>();
+            //prodlist = entityprodrepo.GetAllProducts();
 
-            foreach (POSSystem.Common.Product row in prodlist)
-            {
-                Console.WriteLine("ProductId :" + row.ProductId);
-                Console.WriteLine("ProductName :" + row.ProductName);
-                Console.WriteLine("CategoryId :" + row.CategoryId);
-                Console.WriteLine("Price :" + row.Price);
-                Console.WriteLine();
-            }
+            //foreach (POSSystem.Common.Product row in prodlist)
+            //{
+            //    Console.WriteLine("ProductId :" + row.ProductId);
+            //    Console.WriteLine("ProductName :" + row.ProductName);
+            //    Console.WriteLine("CategoryId :" + row.CategoryId);
+            //    Console.WriteLine("Price :" + row.Price);
+            //    Console.WriteLine();
+            //}
 
             //int result = entityuserrepo.ValidateUser("Annette@gmail.com","Annette@1234");
             //Console.WriteLine(result);
@@ -79,7 +79,12 @@ namespace POSSyetem.ConsoleApp
             //else
             //{
             //    Console.WriteLine("Login Failed");
-            //}
+            //} 
+
+            int saleid;
+            int retval = prodbl.InsertSaleDetails(8856.745, "Davis@gmail.com", out saleid);
+            Console.WriteLine(retval);
+            Console.WriteLine(saleid);
 
         }
     }

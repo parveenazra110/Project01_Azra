@@ -34,6 +34,25 @@ namespace POSServices.ServiceLayer.Controllers
             }
 
             return serviceprodlist;
+        } 
+
+        [HttpPost] 
+        public int InsertSaleDetails(double? totalSaleAmount, string emailId, out int saleid)
+        {
+            int retvalue = 0;
+
+            try
+            {
+                retvalue = prodbl.InsertSaleDetails(totalSaleAmount, emailId, out saleid);
+            }
+            catch (Exception ex)
+            {
+                retvalue = -99;
+                saleid = 0;
+            }
+            return retvalue;
+
+
         }
     }
 }
