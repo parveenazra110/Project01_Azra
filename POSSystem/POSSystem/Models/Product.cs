@@ -11,5 +11,6 @@ namespace POSSystem.Models
         public string ProductName;
         public int CategoryId;
         public decimal Price;
+        public int Quantity;
     }
 }

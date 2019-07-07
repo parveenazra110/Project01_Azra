@@ -4,26 +4,62 @@
     Layout = "~/Views/Shared/_LayoutProduct.cshtml";
 }
 <h2>View all products</h2>
-<div class="container">
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CategoryId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            
-            <th></th>
-        </tr>
-        @foreach (var item in Model)
-        {
+
+
+<div style="width:100%;">
+    <div style="float:left; width:40%; background-color:aliceblue; padding-left:20px; padding-top:20px">
+        <!-- Set Div As your requirement -->
+        <table>
+            <tr>
+                <th>Vat Tax: </th>
+                <td></td>
+                <td><input type="text" value="vatTax" id="vatTaxId" /></td>
+            </tr>
+            <tr>
+                <th>Discount: </th>
+                <td></td>
+                <td><input type="text" value="discount" id="discountId" /></td>
+            </tr>
+            <tr>
+                <th>Sub-Total: </th>
+                <td></td>
+                <td><p id="subTotal">sub-total</p></td>
+            </tr>
+            <tr>
+                <th>Total: </th>
+                <td></td>
+                <td><p id="total">total</p></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button>CANCEL SALE</button></td>
+                <td><button>PROCESS SALE</button></td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div style="float:right; width:60%;">
+        <table class="table">
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CategoryId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th> 
+                <th>
+                    Add Quantity
+                </th>
+
+
+            </tr>
+            @foreach (var item in Model)
+            {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.ProductName)
@@ -34,13 +70,54 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Price)
                 </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
                 
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
-                    @Html.ActionLink("Details", "GetProductById", new { id = item.ProductId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+                    <div style="width:100%;border-width:1px">
+                        <div style="width:50%;padding-left:10px;padding-right:10px;background-color:aqua;float:left;padding-top:5px">
+                            <button onclick="AddQuantity()">+</button>
+                        </div>
+                        <div style="width:50%;padding-right:10px;padding-left:10px;background-color:thistle;float:right;padding-top:5px">
+                            <button onclick="SubtractQuantity()">-</button>
+                        </div>
+                    </div>
                 </td>
+             
+              
+
+
+
             </tr>
-        }
-    </table>
+
+            } 
+
+        </table>
+        <script>
+            function AddQuantity() {
+               
+            }
+            function SubtractQuantity() {
+                alert("Hell0")
+
+            }
+        </script>
+    </div>
+
+
+
+</div>
+<div class="container" align="right">
+
+
+</div>
+
+
+<div id="upleft">
+    <div class="split left">
+        <div class="container" align="left">
+            <p align="center">No Items To display</p>
+        </div>
+    </div>
 </div>

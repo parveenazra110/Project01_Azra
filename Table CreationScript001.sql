@@ -42,7 +42,11 @@ TotalSaleAmount DECIMAL(18,2),
 EmailId VARCHAR(50), 
 CONSTRAINT PK_SaleId PRIMARY KEY(SaleId), 
 CONSTRAINT FK_UserSaleId FOREIGN KEY(EmailId) REFERENCES Users(EmailId)
-) 
+)   
+
+
+
+
 
 
 

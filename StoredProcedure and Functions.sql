@@ -7,12 +7,14 @@ RETURNS INT
 AS 
 BEGIN  
 	DECLARE @Retvalue INT
-	SELECT @Retvalue=RoleId FROM Users WHERE EmailId=@EmailId AND Password=@Password
+	SELECT @Retvalue=RoleId FROM Users WHERE EmailId=@EmailId AND Password=@Password 
+	IF @Retvalue IS NULL 
+		SET @Retvalue=-99
 	RETURN @Retvalue	
 	 
 END
 
-SELECT [dbo].ufn_ValidateUser('Albert@gma','Albert@1234')
+SELECT [dbo].ufn_ValidateUser('Albert@gmail.com','Albert@1234')
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 

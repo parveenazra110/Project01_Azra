@@ -32,7 +32,7 @@ namespace POSSystem.DataAccessLayer
                         {
                             ProductId = Convert.ToString(row[0]),
                             ProductName = Convert.ToString(row[1]),
-                            CategoryId =Convert.ToInt32(row[2]), 
+                            CategoryId =Convert.ToByte(row[2]), 
                             Price=Convert.ToDecimal(row[3])
                         };
                         prodlist.Add(prod);

@@ -5,18 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using POSSystem.DataAccessLayer;
 using POSSystem.Common;
+using POSSystemEntity.DataAccessLayer;
 
 namespace POSSystem.BusinessLayer
 {
     public class ProductBL
     {
-        ProductRepository prodrepo = new ProductRepository(); 
-        public List<Product> GetAllProducts()
+        ProductRepository prodrepo = new ProductRepository();
+
+        EntityProductRepository entityprodrepo = new EntityProductRepository();
+        public List<POSSystem.Common.Product> GetAllProducts()
         {
-            List<Product> prodlist = new List<Product>();
+            List<POSSystem.Common.Product> prodlist = new List<POSSystem.Common.Product>();
             try
             {
-                prodlist = prodrepo.GetAllProducts();
+                prodlist = entityprodrepo.GetAllProducts();
             }
             catch
             {

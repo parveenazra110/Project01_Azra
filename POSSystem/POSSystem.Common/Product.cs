@@ -10,7 +10,7 @@ namespace POSSystem.Common
     {
         public string ProductId;
         public string ProductName;
-        public int CategoryId;
+        public byte CategoryId;
         public decimal Price;
     }
 }
